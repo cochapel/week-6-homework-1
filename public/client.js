@@ -44,11 +44,11 @@ $(function() {
       .forEach((c) => {
       $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
       c.data.playlists.items.map(function(playlist, i) {
-      // var img = $('<img class="cover-image"/>');
+
       var img = document.createElement('img');
-      
-      img.attr('src', playlist.images[0].url);
-      img.appendTo('#category-playlists-container');
+      img.className = "cover-image";
+      img.setAttribute('src', playlist.images[0].url);
+      document.getElementById('category-playlists-container').appendChild(img);
     });
     })
   });
@@ -66,7 +66,8 @@ $(function() {
     keys.map(function(key, i) {
       if (data.hasOwnProperty(key)) {
         var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
-        feature.appendTo('#audio-features-container');
+        // feature.appendTo('#audio-features-container');
+        document.getElementById('audio-features-container').appendChild(feature);
       }
     });
   });
