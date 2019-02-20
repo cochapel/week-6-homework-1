@@ -28,10 +28,9 @@ $(function() {
     document.getElementById('search-track-container').append(h5);
     
     // Display the album art
-    // var img = $('<img/>');
     var img = document.createElement('img');
-    img.attr('src', data.album.images[0].url);
-    img.appendTo('#search-track-container');
+    img.setAttribute('src', data.album.images[0].url);
+    document.getElementById('search-track-container').appendChild(img);
   });
   
   $.get('/category-playlists', function(data) {
