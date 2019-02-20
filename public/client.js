@@ -42,7 +42,8 @@ $(function() {
     // Display the covers of the playlists
     data
       .forEach((c) => {
-      $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
+      var textNode = document.createTextNode(`${c.name}`);
+      $('#category-playlists-container').append(`<br><h1> + textNode + </h1><br>`)
       c.data.playlists.items.map(function(playlist, i) {
 
       var img = document.createElement('img');
@@ -65,9 +66,11 @@ $(function() {
     // Display the audio features
     keys.map(function(key, i) {
       if (data.hasOwnProperty(key)) {
+        var p = document.createElement('p');
+        var span = document.createElement('span');
+        
         var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
-        // feature.appendTo('#audio-features-container');
-        document.getElementById('audio-features-container').appendChild(feature);
+        feature.appendTo('#audio-features-container');
       }
     });
   });
