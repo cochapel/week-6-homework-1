@@ -28,7 +28,8 @@ $(function() {
     document.getElementById('search-track-container').append(h5);
     
     // Display the album art
-    var img = $('<img/>');
+    // var img = $('<img/>');
+    var img = document.createElement('img');
     img.attr('src', data.album.images[0].url);
     img.appendTo('#search-track-container');
   });
