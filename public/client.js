@@ -42,8 +42,7 @@ $(function() {
     // Display the covers of the playlists
     data
       .forEach((c) => {
-      var textNode = document.createTextNode(`${c.name}`);
-      $('#category-playlists-container').append(`<br><h1> + textNode + </h1><br>`)
+      $('#category-playlists-container').append(`<br><h1>${c.name}</h1><br>`)
       c.data.playlists.items.map(function(playlist, i) {
 
       var img = document.createElement('img');
@@ -69,7 +68,7 @@ $(function() {
         var p = document.createElement('p');
         var span = document.createElement('span');
         
-        var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + '</p>');
+        var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + "</p>");
         feature.appendTo('#audio-features-container');
       }
     });
@@ -82,13 +81,21 @@ $(function() {
     console.groupEnd();
     
     // Display the artist's image
-    var img = $('<img class="circle-image" />');
-    img.attr('src', data.images[0].url);
-    img.appendTo('#artist-container');
+    var img = document.createElement('img');
+    img.className = "circle-image";
+    // var img = $('<img class="circle-image" />');
+    img.setAttribute('src', data.images[0].url);
+    document.getElementById('artist-container').appendChild(img);
     
     // Display the artist name
-    var trackName = $('<h3>' + data.name + '</h3>');
-    trackName.appendTo('#artist-container');
+    
+    var h3 = document.createElement('h3');
+    h3.innerHTML = data.name;
+    
+    // var trackName = $('<h3>' + data.name + '</h3>');
+    // trackName.appendTo('#artist-container');
+    
+    document.getElementById('artist-container').appendChild(h3);
     
     // Display the artist's genres
     data.genres.map(function(genre, i) {
