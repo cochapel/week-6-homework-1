@@ -68,9 +68,9 @@ $(function() {
         var p = document.createElement('p');
         var span = document.createElement('span');
         
-        span.className = "big-number";
+        // span.className = "big-number";
         
-        span.innerHTML = data[key];
+        span.innerHTML = data[key] + " ";
         p.innerHTML = span.innerHTML + key;
         
         document.getElementById('audio-features-container').appendChild(p);
