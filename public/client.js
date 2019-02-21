@@ -68,8 +68,15 @@ $(function() {
         var p = document.createElement('p');
         var span = document.createElement('span');
         
-        var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + "</p>");
-        feature.appendTo('#audio-features-container');
+        span.className = "big-number";
+        
+        span.innerHTML = data[key];
+        p.innerHTML = span.innerHTML + key;
+        
+        document.getElementById('audio-features-container').appendChild(p);
+        
+        // var feature = $('<p><span class="big-number">' + data[key] + ' </span>'  + key + "</p>");
+        // feature.appendTo('#audio-features-container');
       }
     });
   });
@@ -83,7 +90,6 @@ $(function() {
     // Display the artist's image
     var img = document.createElement('img');
     img.className = "circle-image";
-    // var img = $('<img class="circle-image" />');
     img.setAttribute('src', data.images[0].url);
     document.getElementById('artist-container').appendChild(img);
     
@@ -109,8 +115,9 @@ $(function() {
     
     // Display the audio features
     data.map(function(track, i) {
-      var trackName = $('<li>' + track.name + '</li>');
-      trackName.appendTo('#top-tracks-container');
+      var li = document.createElement('li');
+      li.innerHTML = track.name;
+      document.getElementById('top-tracks-container').appendChild(li);
     });
   });
 
