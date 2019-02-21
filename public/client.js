@@ -88,19 +88,16 @@ $(function() {
     document.getElementById('artist-container').appendChild(img);
     
     // Display the artist name
-    
     var h3 = document.createElement('h3');
     h3.innerHTML = data.name;
-    
-    // var trackName = $('<h3>' + data.name + '</h3>');
-    // trackName.appendTo('#artist-container');
-    
     document.getElementById('artist-container').appendChild(h3);
     
     // Display the artist's genres
     data.genres.map(function(genre, i) {
-      var genreItem = $('<p>' + genre + '</p>');
-      genreItem.appendTo('#artist-container');
+      var p = document.createElement('p');
+      p.innerHTML = genre;
+      
+      document.getElementById('artist-container').appendChild(p);
     });
   });
   
